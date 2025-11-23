@@ -5,3 +5,4 @@ vendor
 .vscode
 .php-cs-fixer.cache
 .phpunit.result.cache
+var

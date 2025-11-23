@@ -26,6 +26,7 @@ class ResponseHandler extends AbstractResponseHandler
         if (!is_array($array) || !array_key_exists('uuid', $array)) {
             return false;
         }
+
         return $array['uuid'] === $model->getUuid();
     }
 
@@ -39,7 +40,7 @@ class ResponseHandler extends AbstractResponseHandler
      */
     protected function handleResponse(RequestProcessorModel $model, object $responseData): void
     {
-        if ($responseData->data == 'OK') {
+        if ('OK' == $responseData->data) {
             $model->setStatusSuccess()
                 ->addDataResponse(['response' => 'OK']);
         } else {

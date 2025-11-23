@@ -57,12 +57,12 @@ class RepeaterHandler implements RequestHandlerInterface, RepeaterHandlerInterfa
             $model->getOptions()->add($retryCountContext);
         }
 
-        if ($retryCountContext->getCount() === self::REPEAT_COUNT) {
+        if (self::REPEAT_COUNT === $retryCountContext->getCount()) {
             $model->setStatusSuccess()
                 ->addDataResponse(['response' => 'OK']);
+
             return;
         }
-
 
         $model->setStatusWait()
             ->addDataRequest(['retryCount' => $retryCountContext->getCount() ?? 0]);

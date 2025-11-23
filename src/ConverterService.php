@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yurinskiy\RequestBundle;
 
 use Symfony\Component\Serializer\SerializerInterface;
@@ -11,7 +13,7 @@ class ConverterService
 
     protected SerializerInterface $serializer;
 
-    public function __construct(SerializerInterface $serializer )
+    public function __construct(SerializerInterface $serializer)
     {
         $this->serializer = $serializer;
     }

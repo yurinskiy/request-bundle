@@ -11,7 +11,8 @@ final class ModelContext implements ContextInterface
 {
     private RequestProcessorModel $model;
 
-    public function __construct(RequestProcessorModel $model) {
+    public function __construct(RequestProcessorModel $model)
+    {
         $this->model = $model;
     }
 

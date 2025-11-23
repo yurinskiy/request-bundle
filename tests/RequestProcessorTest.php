@@ -64,15 +64,15 @@ class RequestProcessorTest extends KernelTestCase
         self::assertIsObject($model->getLastPayload());
         self::assertTrue($model->getStatus()->isComplete());
         self::assertTrue($model->getStatus()->isStatusFailed());
-        self::assertCount(1,  $model->getProcessedData());
-        self::assertCount(1,  $model->getProcessedData(DataTypeEnum::ERROR()));
+        self::assertCount(1, $model->getProcessedData());
+        self::assertCount(1, $model->getProcessedData(DataTypeEnum::ERROR()));
         self::assertStringContainsString('Не найден обработчик для сообщения', $model->getLastProcessedData()->getData()[0]);
         self::assertNull($model->getCode());
         self::assertIsObject($model->getLastPayload());
         self::assertArrayHasKey('requestData', $model->getLastPayload()->getPayload());
 
         $codeContext = new CodeContext('Murzik');
-        $uuidContext =  new UuidContext('Hloya');
+        $uuidContext = new UuidContext('Hloya');
         $message = new PayloadMessage(
             ['requestData' => 'test'],
             ContextBucket::instance($codeContext, $uuidContext)

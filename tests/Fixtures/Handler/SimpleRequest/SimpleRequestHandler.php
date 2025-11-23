@@ -12,14 +12,17 @@ use Yurinskiy\RequestBundle\Traits\ResponseTrait;
 class SimpleRequestHandler implements RequestHandlerInterface, HandlerWithCodeInterface
 {
     use ResponseTrait;
+
     public static function getCode(): string
     {
         return 'testRequest';
     }
+
     public function support(RequestProcessorModel $model): bool
     {
         /** @var SomeContext|null $someContext */
         $someContext = $model->getOptions()->last(SomeContext::class);
+
         return $model->getCode() === self::getCode() || $someContext;
     }
 
@@ -28,7 +31,7 @@ class SimpleRequestHandler implements RequestHandlerInterface, HandlerWithCodeIn
         /** @var SomeContext|null $someContext */
         $someContext = $model->getOptions()->last(SomeContext::class);
 
-        if ($someContext && $someContext->getData() == 'OK') {
+        if ($someContext && 'OK' == $someContext->getData()) {
             $model->setStatusSuccess()
                 ->addDataRequest(['request' => 'OK'])
                 ->addDataResponse(['response' => 'OK']);

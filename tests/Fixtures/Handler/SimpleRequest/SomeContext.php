@@ -11,7 +11,8 @@ final class SomeContext implements ContextInterface, OptionContextInterface
 {
     private string $data = '';
 
-    public function __construct(string $data = '') {
+    public function __construct(string $data = '')
+    {
         $this->data = $data;
     }
 

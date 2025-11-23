@@ -6,9 +6,7 @@ namespace Yurinskiy\RequestBundle\Tests\Handler;
 
 use Yurinskiy\Context\ContextBucket;
 use Yurinskiy\RequestBundle\Context\Filter\CodeContext;
-use Yurinskiy\RequestBundle\Context\Payload\PayloadContextBucket;
 use Yurinskiy\RequestBundle\Model\Enum\DataTypeEnum;
-use Yurinskiy\RequestBundle\Model\PayloadData;
 use Yurinskiy\RequestBundle\PayloadMessage;
 use Yurinskiy\RequestBundle\Tests\Fixtures\Handler\SimpleRequest\SimpleRequestHandler;
 use Yurinskiy\RequestBundle\Tests\Fixtures\Handler\SimpleRequest\SomeContext;
@@ -26,8 +24,8 @@ class SimpleRequestTest extends AbstractTestCase
 
         self::assertTrue($model->getStatus()->isComplete());
         self::assertTrue($model->getStatus()->isStatusFailed());
-        self::assertCount(1,  $model->getProcessedData());
-        self::assertCount(1,  $model->getProcessedData(DataTypeEnum::ERROR()));
+        self::assertCount(1, $model->getProcessedData());
+        self::assertCount(1, $model->getProcessedData(DataTypeEnum::ERROR()));
         self::assertArrayHasKey('error', $model->getLastProcessedData()->getData());
         $message = new PayloadMessage(
             ['requestData' => 'test'],
@@ -40,8 +38,8 @@ class SimpleRequestTest extends AbstractTestCase
         $model = $this->service->execute($message);
 
         self::assertTrue($model->getStatus()->isStatusSuccess());
-        self::assertCount(2,  $model->getProcessedData());
-        self::assertCount(1,  $model->getProcessedData(DataTypeEnum::RESPONSE()));
+        self::assertCount(2, $model->getProcessedData());
+        self::assertCount(1, $model->getProcessedData(DataTypeEnum::RESPONSE()));
         self::assertArrayHasKey('response', $model->getLastProcessedData(DataTypeEnum::RESPONSE())->getData());
 
         $message = new PayloadMessage(
@@ -51,9 +49,8 @@ class SimpleRequestTest extends AbstractTestCase
         $model = $this->service->execute($message);
 
         self::assertTrue($model->getStatus()->isStatusSuccess());
-        self::assertCount(2,  $model->getProcessedData());
-        self::assertCount(1,  $model->getProcessedData(DataTypeEnum::REQUEST()));
+        self::assertCount(2, $model->getProcessedData());
+        self::assertCount(1, $model->getProcessedData(DataTypeEnum::REQUEST()));
         self::assertArrayHasKey('request', $model->getLastProcessedData(DataTypeEnum::REQUEST())->getData());
     }
-
 }

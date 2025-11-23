@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Yurinskiy\RequestBundle\Tests\Handler;
 
-
 use Yurinskiy\Context\ContextBucket;
 use Yurinskiy\RequestBundle\Context\UuidContext;
 use Yurinskiy\RequestBundle\Model\Enum\DataTypeEnum;
@@ -25,8 +24,8 @@ class ResponseRequestTest extends AbstractTestCase
         self::assertTrue($model->getStatus()->isComplete());
         self::assertTrue($model->getStatus()->isStatusFailed());
         self::assertEquals(ResponseHandler::getCode(), $model->getCode());
-        self::assertCount(1,  $model->getProcessedData());
-        self::assertCount(1,  $model->getProcessedData(DataTypeEnum::VALIDATION()));
+        self::assertCount(1, $model->getProcessedData());
+        self::assertCount(1, $model->getProcessedData(DataTypeEnum::VALIDATION()));
 
         $message = new PayloadMessage(
             ['data' => 'Cat\'s say Mew', 'uuid' => '1234567890'],
@@ -37,8 +36,8 @@ class ResponseRequestTest extends AbstractTestCase
 
         self::assertTrue($model->getStatus()->isComplete());
         self::assertTrue($model->getStatus()->isStatusFailed());
-        self::assertCount(1,  $model->getProcessedData());
-        self::assertCount(1,  $model->getProcessedData(DataTypeEnum::ERROR()));
+        self::assertCount(1, $model->getProcessedData());
+        self::assertCount(1, $model->getProcessedData(DataTypeEnum::ERROR()));
 
         $message = new PayloadMessage(
             ['data' => 'OK', 'uuid' => '1234567890'],
@@ -49,7 +48,7 @@ class ResponseRequestTest extends AbstractTestCase
 
         self::assertTrue($model->getStatus()->isComplete());
         self::assertTrue($model->getStatus()->isStatusSuccess());
-        self::assertCount(1,  $model->getProcessedData());
-        self::assertCount(1,  $model->getProcessedData(DataTypeEnum::RESPONSE()));
+        self::assertCount(1, $model->getProcessedData());
+        self::assertCount(1, $model->getProcessedData(DataTypeEnum::RESPONSE()));
     }
 }

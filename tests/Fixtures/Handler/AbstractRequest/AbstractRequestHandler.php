@@ -9,7 +9,6 @@ use Yurinskiy\RequestBundle\Model\RequestProcessorModel;
 
 class AbstractRequestHandler extends CommonAbstractRequest
 {
-
     public static function getCode(): string
     {
         return 'testAbstractRequest';
@@ -35,11 +34,11 @@ class AbstractRequestHandler extends CommonAbstractRequest
      */
     protected function handleRequest(RequestProcessorModel $model, object $requestData): void
     {
-        if ($requestData->data == 'OK') {
+        if ('OK' == $requestData->data) {
             $model->setStatusSuccess()
                 ->addDataRequest(['request' => 'OK'])
                 ->addDataResponse(['response' => 'OK']);
-        } elseif ($requestData->data == 'REPEAT') {
+        } elseif ('REPEAT' == $requestData->data) {
             $model->setStatusWait()
                 ->addDataRequest(['data' => 'OK', 'description' => 'repeat check'])
                 ->addDataResponse(['response' => 'REPEAT']);

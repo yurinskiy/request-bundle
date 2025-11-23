@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Yurinskiy\RequestBundle\Handler;
 
+use Symfony\Component\Validator\ConstraintViolationListInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Yurinskiy\RequestBundle\ConverterService;
 use Yurinskiy\RequestBundle\Model\RequestProcessorModel;
 use Yurinskiy\RequestBundle\Traits\ResponseTrait;
-use Symfony\Component\Validator\ConstraintViolationListInterface;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 abstract class AbstractResponseHandler implements RequestHandlerInterface, HandlerWithCodeInterface
 {
@@ -22,7 +22,8 @@ abstract class AbstractResponseHandler implements RequestHandlerInterface, Handl
         return static::class;
     }
 
-    public function __construct(ValidatorInterface $validator, ConverterService $converter) {
+    public function __construct(ValidatorInterface $validator, ConverterService $converter)
+    {
         $this->validator = $validator;
         $this->converter = $converter;
     }

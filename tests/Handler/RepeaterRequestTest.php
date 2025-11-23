@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Yurinskiy\RequestBundle\Tests\Handler;
 
-
 use Yurinskiy\Context\ContextBucket;
 use Yurinskiy\RequestBundle\Context\Filter\CodeContext;
 use Yurinskiy\RequestBundle\Context\Option\Repeater\CurrentRetryCountContext;
@@ -27,7 +26,7 @@ class RepeaterRequestTest extends AbstractTestCase
         $model = $this->service->execute($message);
         self::assertFalse($model->getStatus()->isComplete());
         self::assertTrue($model->getStatus()->isStatusWait());
-        self::assertCount(1,  $model->getProcessedData(DataTypeEnum::REQUEST()));
+        self::assertCount(1, $model->getProcessedData(DataTypeEnum::REQUEST()));
         self::assertArrayHasKey('retryCount', $model->getLastProcessedData(DataTypeEnum::REQUEST())->getData());
 
         $message = new PayloadMessage(
@@ -58,6 +57,6 @@ class RepeaterRequestTest extends AbstractTestCase
 
         /** @var CurrentRetryCountContext $context */
         $context = $model->getOptions()->last(CurrentRetryCountContext::class);
-        self::assertEquals(2,  $context->getCount());
+        self::assertEquals(2, $context->getCount());
     }
 }

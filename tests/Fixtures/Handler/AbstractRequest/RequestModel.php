@@ -10,6 +10,7 @@ class RequestModel
 {
     /**
      * @Assert\NotNull
+     *
      * @Assert\NotBlank
      */
     public ?string $data = null;
