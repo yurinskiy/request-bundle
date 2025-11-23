@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace Yurinskiy\RequestBundle\Queue;
 
-use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Yurinskiy\RequestBundle\PayloadMessage;
 use Yurinskiy\RequestBundle\RequestProcessingService;
 
-final class QueueHandler implements MessageHandlerInterface
+final class QueueHandler
 {
     private RequestProcessingService $service;
 

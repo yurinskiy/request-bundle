@@ -7,5 +7,3 @@ framework:
     session:
         handler_id: 'session.handler.native'
         storage_factory_id: session.storage.factory.mock_file
-    validation:
-        enable_annotations: true
