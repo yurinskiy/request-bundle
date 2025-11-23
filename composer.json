@@ -1,0 +1,65 @@
+{
+  "name": "yurinskiy/request-bundle",
+  "description": "The symfony bundle for logging work with request.",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Yuriy Yurisnkiy",
+      "email": "yuriyyurinskiy@yandex.ru",
+      "role": "Developer"
+    },
+    {
+      "name": "Michael Korenev",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/yurinskiy/request-bundle/issues"
+  },
+  "require": {
+    "php": ">=7.4",
+    "ext-json": "*",
+    "symfony/amqp-messenger": "^5.4|^6.0|^7.0",
+    "symfony/config": "^5.4|^6.0|^7.0",
+    "symfony/dependency-injection": "^5.4|^6.0|^7.0",
+    "symfony/http-kernel": "^5.4|^6.0|^7.0",
+    "symfony/event-dispatcher": "^5.4|^6.0|^7.0",
+    "symfony/messenger": "^5.4|^6.0|^7.0",
+    "symfony/property-access": "^5.4|^6.0|^7.0",
+    "symfony/serializer": "^5.4|^6.0|^7.0",
+    "symfony/validator": "^5.4|^6.0|^7.0",
+    "symfony/uid": "^5.4|^6.0|^7.0",
+    "psr/log": "^1|^2",
+    "yurinskiy/context": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Yurinskiy\\RequestBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Yurinskiy\\RequestBundle\\Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "doctrine/annotations": "^2.0",
+    "friendsofphp/php-cs-fixer": "^3.10",
+    "phpstan/phpstan": "^2.0",
+    "phpstan/phpstan-deprecation-rules": "^2.0",
+    "phpstan/phpstan-strict-rules": "^2.0",
+    "phpunit/phpunit": "^9.6",
+    "symfony/framework-bundle": "^5.4|^6.0|^7.0",
+    "symfony/yaml": "^5.4|^6.0|^7.0"
+  },
+  "scripts": {
+    "cs-fixer": "./vendor/bin/php-cs-fixer fix -v",
+    "code-style": [
+      "@cs-fixer",
+      "@phpstan"
+    ],
+    "phpstan": "./vendor/bin/phpstan analyse --memory-limit=512M",
+    "test": "./vendor/bin/phpunit"
+  }
+}

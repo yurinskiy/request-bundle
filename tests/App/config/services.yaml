@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+
+        Declaration of Yurinskiy\RequestBundle\Traits\ResponseTrait::statusErrorValidation(Yurinskiy\RequestBundle\Model\RequestProcessorModel $model, Symfony\Component\Validator\ConstraintViolationListInterface $errors): Yurinskiy\RequestBundle\Traits\ResponseTrait must be compatible with
+            Yurinskiy\RequestBundle\Handler\AbstractResponseHandler::statusErrorValidation(Yurinskiy\RequestBundle\Model\RequestProcessorModel $model, Symfony\Component\Validator\ConstraintViolationListInterface $errors): Yurinskiy\RequestBundle\Handler\AbstractResponseHandler in /opt/project/tests/Fixtures/Handler/Response/ResponseHandler.php on line 13
