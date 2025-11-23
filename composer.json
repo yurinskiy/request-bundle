@@ -20,6 +20,7 @@
   "require": {
     "php": ">=7.4",
     "ext-json": "*",
+    "nesbot/carbon": ">=2.70",
     "symfony/amqp-messenger": "^5.4|^6.0|^7.0",
     "symfony/config": "^5.4|^6.0|^7.0",
     "symfony/dependency-injection": "^5.4|^6.0|^7.0",
