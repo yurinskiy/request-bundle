@@ -18,9 +18,9 @@ class YurinskiyRequestExtension extends Extension
     public function load(array $configs, ContainerBuilder $container)
     {
         $container->registerForAutoconfiguration(RequestHandlerInterface::class)
-            ->setTags([self::TAG_REQUEST_HANDLER]);
+            ->addTag(self::TAG_REQUEST_HANDLER);
         $container->registerForAutoconfiguration(RepeaterHandlerInterface::class)
-            ->setTags([self::TAG_REQUEST_HANDLER]);
+            ->addTag(self::TAG_REQUEST_HANDLER);
 
         $loader = new PhpFileLoader($container, new FileLocator(__DIR__.'/../../config'));
         $loader->load('services.php');
