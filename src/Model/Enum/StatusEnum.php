@@ -70,6 +70,16 @@ final class StatusEnum
         return $this->value;
     }
 
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+
+    public function setValue(string $value): void
+    {
+        $this->value = $value;
+    }
+
     public function label(): string
     {
         switch ($this->value) {
