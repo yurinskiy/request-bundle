@@ -9,13 +9,13 @@ use Yurinskiy\RequestBundle\Context\Payload\PayloadContextBucket;
 final class PayloadData
 {
     /**
-     * @var array|object|\stdClass
+     * @var array|\stdClass|object
      */
     private $payload;
     private ?PayloadContextBucket $options = null;
 
     /**
-     * @param array|object|\stdClass $payload
+     * @param array|\stdClass|object $payload
      */
     public function __construct($payload = [], ?PayloadContextBucket $options = null)
     {
@@ -24,7 +24,7 @@ final class PayloadData
     }
 
     /**
-     * @return array|object|\stdClass
+     * @return array|\stdClass|object
      */
     public function getPayload()
     {
