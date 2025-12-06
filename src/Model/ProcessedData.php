@@ -11,12 +11,12 @@ final class ProcessedData
     private DataTypeEnum $type;
 
     /**
-     * @var array|object|\stdClass
+     * @var array|\stdClass|object
      */
     private $data = [];
 
     /**
-     * @param object|array|\stdClass $data
+     * @param array|\stdClass|object $data
      */
     public function __construct(DataTypeEnum $type, $data = [])
     {
@@ -25,7 +25,7 @@ final class ProcessedData
     }
 
     /**
-     * @return array|object|\stdClass
+     * @return array|\stdClass|object
      */
     public function getData()
     {
